@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Свобода Финанс — банкротство физических лиц</title>
+  <meta name="description" content="Юридическая компания по банкротству физических лиц в России. Законное списание долгов, защита от коллекторов, сопровождение под ключ." />
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --card: #ffffff;
+      --text: #182033;
+      --muted: #5f6b86;
+      --accent: #2f61ff;
+      --accent-dark: #1d46c2;
+      --success: #14a44d;
+      --line: #dfe5f5;
+      --shadow: 0 18px 42px rgba(24, 32, 51, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f9fbff 0%, #f4f7ff 100%);
+      line-height: 1.5;
+    }
+
+    .container {
+      width: min(1140px, 92vw);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(249, 251, 255, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(223, 229, 245, 0.75);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      gap: 18px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav ul {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    .phone {
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .hero {
+      padding: 72px 0 56px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(47, 97, 255, 0.12);
+      color: var(--accent);
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      margin: 0 0 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 58ch;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(47, 97, 255, 0.35);
+    }
+
+    .btn-primary:hover { background: var(--accent-dark); }
+
+    .btn-secondary {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .metric {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.25rem;
+      color: var(--accent);
+    }
+
+    .hero-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .hero-card h3 { margin: 0 0 8px; }
+
+    .checklist {
+      margin: 14px 0 18px;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(20, 164, 77, 0.14);
+      color: var(--success);
+      display: grid;
+      place-items: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    section { padding: 26px 0; }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+    }
+
+    .muted { color: var(--muted); }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+
+    .card h3 { margin: 0 0 8px; }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding: 0;
+      list-style: none;
+      margin: 18px 0 0;
+    }
+
+    .steps li {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .steps li::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      display: inline-block;
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--accent);
+      background: rgba(47, 97, 255, 0.12);
+      border-radius: 999px;
+      padding: 5px 10px;
+    }
+
+    .calc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 12px;
+      font: inherit;
+      color: var(--text);
+      background: #fff;
+    }
+
+    .result {
+      background: #f4f7ff;
+      border: 1px dashed #bfd0ff;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 8px;
+    }
+
+    details {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    details + details { margin-top: 10px; }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 26px;
+      padding: 22px 0 40px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 0.92rem;
+    }
+
+    .floating-call {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 30;
+      border-radius: 999px;
+      padding: 12px 18px;
+      background: var(--success);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 16px 24px rgba(20, 164, 77, 0.25);
+    }
+
+    @media (max-width: 980px) {
+      nav ul { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 40px; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .calc { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .grid-3, .metrics, .steps { grid-template-columns: 1fr; }
+      .phone { display: none; }
+      .floating-call { left: 12px; right: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#top">Свобода<span>Финанс</span></a>
+      <nav>
+        <ul>
+          <li><a href="#advantages">Преимущества</a></li>
+          <li><a href="#steps">Этапы</a></li>
+          <li><a href="#calculator">Калькулятор</a></li>
+          <li><a href="#faq">Вопросы</a></li>
+        </ul>
+      </nav>
+      <a class="phone" href="tel:+78005553535">8 (800) 555-35-35</a>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div>
+        <div class="badge">Работаем по ФЗ-127 по всей России</div>
+        <h1>Законно спишем долги<br/>и остановим давление коллекторов</h1>
+        <p>Помогаем физическим лицам пройти процедуру банкротства с полным юридическим сопровождением. Берем на себя общение с кредиторами, МФО и банками.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#calculator">Рассчитать списание долгов</a>
+          <a class="btn btn-secondary" href="#consultation">Получить консультацию</a>
+        </div>
+        <div class="metrics">
+          <div class="metric"><strong>12+ лет</strong><span class="muted">практики</span></div>
+          <div class="metric"><strong>4 800+</strong><span class="muted">дел завершено</span></div>
+          <div class="metric"><strong>99%</strong><span class="muted">успешных процедур</span></div>
+        </div>
+      </div>
+
+      <aside class="hero-card" id="consultation">
+        <h3>Бесплатная первичная консультация</h3>
+        <p class="muted">Оценим вашу ситуацию за 15 минут и предложим стратегию списания долгов.</p>
+        <ul class="checklist">
+          <li><span class="dot">✓</span>Остановим звонки коллекторов и банков</li>
+          <li><span class="dot">✓</span>Сохраним имущество, если это возможно по закону</li>
+          <li><span class="dot">✓</span>Подготовим все документы «под ключ»</li>
+        </ul>
+        <a class="btn btn-primary" href="#form">Записаться на консультацию</a>
+      </aside>
+    </section>
+
+    <section id="advantages">
+      <h2>Почему нам доверяют списание долгов</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Фиксированная стоимость</h3>
+          <p class="muted">Закрепляем цену в договоре. Без скрытых платежей и «доплат по ходу дела».</p>
+        </article>
+        <article class="card">
+          <h3>Персональный юрист</h3>
+          <p class="muted">За вами закрепляется специалист, который ведет дело от подачи до завершения.</p>
+        </article>
+        <article class="card">
+          <h3>Опыт в регионах РФ</h3>
+          <p class="muted">Ведем дела очно и дистанционно в любом регионе России.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="steps">
+      <h2>Как проходит процедура</h2>
+      <ol class="steps">
+        <li><strong>Анализ ситуации</strong><br/><span class="muted">Проверяем долги, доход и имущество.</span></li>
+        <li><strong>Подготовка документов</strong><br/><span class="muted">Собираем пакет для арбитражного суда.</span></li>
+        <li><strong>Подача заявления</strong><br/><span class="muted">Представляем ваши интересы в суде.</span></li>
+        <li><strong>Списание долгов</strong><br/><span class="muted">Получаете определение суда и новый старт.</span></li>
+      </ol>
+    </section>
+
+    <section id="calculator">
+      <h2>Калькулятор предварительной оценки</h2>
+      <p class="muted">Оставьте данные — покажем ориентировочный срок и возможность списания долгов.</p>
+      <div class="calc">
+        <article class="card">
+          <form id="calcForm">
+            <label>Общая сумма долга, ₽
+              <input id="debt" type="number" min="50000" step="10000" placeholder="например, 850000" required />
+            </label>
+            <label>Ежемесячный официальный доход, ₽
+              <input id="income" type="number" min="0" step="5000" placeholder="например, 45000" required />
+            </label>
+            <label>Есть просрочки более 3 месяцев?
+              <select id="delay">
+                <option value="yes">Да</option>
+                <option value="no">Нет</option>
+              </select>
+            </label>
+            <button class="btn btn-primary" type="submit">Рассчитать</button>
+          </form>
+        </article>
+
+        <article class="card" id="resultBox">
+          <h3>Результат</h3>
+          <p class="muted">Заполните форму слева, чтобы получить предварительную оценку.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>Частые вопросы</h2>
+      <details>
+        <summary>Можно ли списать долги по кредитам и микрозаймам одновременно?</summary>
+        <p class="muted">Да. В рамках процедуры банкротства учитываются все обязательства, включенные в реестр требований кредиторов.</p>
+      </details>
+      <details>
+        <summary>Смогу ли я выезжать за границу во время процедуры?</summary>
+        <p class="muted">Ограничения возможны по решению суда. Мы заранее оцениваем риски и обсуждаем стратегию.</p>
+      </details>
+      <details>
+        <summary>Что будет с зарплатной картой и текущими счетами?</summary>
+        <p class="muted">На период процедуры финансовый управляющий контролирует движение средств, но гражданину сохраняется прожиточный минимум.</p>
+      </details>
+    </section>
+
+    <section>
+      <div class="card">
+        <h2>Оставьте заявку — перезвоним в течение 10 минут</h2>
+        <form id="form">
+          <label>Ваше имя
+            <input type="text" name="name" required placeholder="Иван" />
+          </label>
+          <label>Телефон
+            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" />
+          </label>
+          <label>Комментарий
+            <textarea name="comment" rows="3" placeholder="Коротко опишите ситуацию"></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Получить консультацию</button>
+          <p class="muted" style="margin:0;font-size:.82rem;">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      ООО «Свобода Финанс», ИНН 5400000000 · Юридическая помощь по вопросам банкротства физических лиц в РФ.<br />
+      Информация на сайте не является публичной офертой.
+    </div>
+  </footer>
+
+  <a class="floating-call" href="tel:+78005553535">Позвонить юристу</a>
+
+  <script>
+    const form = document.getElementById('calcForm');
+    const resultBox = document.getElementById('resultBox');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const debt = Number(document.getElementById('debt').value || 0);
+      const income = Number(document.getElementById('income').value || 0);
+      const delay = document.getElementById('delay').value;
+
+      const debtIncomeRatio = income ? debt / income : Infinity;
+      const estimatedMonths = Math.min(12, Math.max(6, Math.round(debt / 140000)));
+      const highChance = debt >= 300000 && (delay === 'yes' || debtIncomeRatio > 8);
+
+      resultBox.innerHTML = `
+        <h3>Предварительная оценка</h3>
+        <div class="result">
+          <p><strong>Сумма долга:</strong> ${debt.toLocaleString('ru-RU')} ₽</p>
+          <p><strong>Ориентировочный срок процедуры:</strong> ${estimatedMonths}–${estimatedMonths + 3} мес.</p>
+          <p><strong>Вероятность списания:</strong> ${highChance ? 'Высокая' : 'Требуется дополнительный анализ'}</p>
+          <p><strong>Рекомендация:</strong> Запишитесь на бесплатную консультацию, чтобы юрист оценил имущество, сделки и риски.</p>
+        </div>
+      `;
+    });
+
+    document.getElementById('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
